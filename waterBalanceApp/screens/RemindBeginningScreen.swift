@@ -10,21 +10,31 @@ import SwiftUI
 struct RemindBeginningScreen: View {
     @Binding var remindPeriod: RemindPeriod
     
+    @State var isIntakeScreenActive: Bool = false
+    
     var body: some View {
-        VStack {
-            Text("WATER BALANCE")
-                .font(.system(size: 24, weight: .bold, design: .default))
-                .italic()
-                .foregroundColor(MyColors.lightBlue)
-                .padding(.bottom, 62)
-            
-            RemindComponent(remindPeriod: $remindPeriod)
-                .padding(.bottom, 116)
-            
-            CustomButton(text: "Next") {
-                print("Tapped")
+        ZStack {
+            NavigationLink(isActive: $isIntakeScreenActive) {
+                IntakeScreen(intake: .constant("10"))
+            } label: {
+                EmptyView()
             }
-                .padding(.bottom, 50)
+            
+            VStack {
+                Text("WATER BALANCE")
+                    .font(.system(size: 24, weight: .bold, design: .default))
+                    .italic()
+                    .foregroundColor(MyColors.lightBlue)
+                    .padding(.bottom, 62)
+                
+                RemindComponent(remindPeriod: $remindPeriod)
+                    .padding(.bottom, 116)
+                
+                CustomButton(text: "Next") {
+                    isIntakeScreenActive = true
+                }
+                    .padding(.bottom, 50)
+            }
         }
     }
 }

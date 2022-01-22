@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct GoalBeginningScreen: View {
-    @State var isRemindBeginningScreenActive: Bool = false
-    
     @Binding var goal: Goal
+    
+    @State var isRemindBeginningScreenActive: Bool = false
     
     var body: some View {
         NavigationView {
@@ -36,7 +36,7 @@ struct GoalBeginningScreen: View {
                     }
                 }
             }
-            .navigationBarHidden(true)
+                .navigationBarHidden(true)
         }
     }
 }

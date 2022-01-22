@@ -10,21 +10,29 @@ import SwiftUI
 
 class Store: ObservableObject {
     @Published var goal: Goal? = nil
-    @Published var dailyIntake: Float = 0.0
-    @Published var currentIntake: Float = 0.0
+    @Published var dailyIntake: String = ""
+    @Published var currentIntake: String = ""
     @Published var remindPeriod: RemindPeriod? = nil
     @Published var history: [ResultForDay] = []
     
     var showMainApp: Bool {
-        if (goal == nil && dailyIntake == 0.0 && remindPeriod == nil) {
+        if (goal == nil && Int(dailyIntake) == 0 && remindPeriod == nil) {
             return false
         }
         
         return true
     }
     
-    var progressPercent: Float {
-        roundf((currentIntake / dailyIntake) * 100)
+    var progressPercent: Int {
+        guard let currentIntakeDouble = Double(currentIntake) else {
+            return 0
+        }
+        
+        guard let dailyIntakeDouble = Double(dailyIntake) else {
+            return 0
+        }
+        
+        return Int((currentIntakeDouble / dailyIntakeDouble) * 100)
     }
 }
 
