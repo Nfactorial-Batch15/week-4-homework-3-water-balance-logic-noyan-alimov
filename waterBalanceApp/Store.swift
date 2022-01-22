@@ -42,36 +42,93 @@ class Store: ObservableObject {
         return dailyIntakeDouble
     }
     
-    func incrementCurrIntake(currIntake: String) {
-        guard let currIntake = Double(currIntake) else {
+    func incrementCurrIntake(currIntakeStr: String) {
+        guard let currIntake = Double(currIntakeStr) else {
             return
         }
         
         currentIntake = String(currentIntakeDouble + currIntake)
+        
+        if history.count == 0 {
+            return
+        }
+        
+        let waterIntake = WaterIntake(intake: currIntakeStr, time: getTodaysTime())
+        history[history.count - 1].waterIntakes.append(waterIntake)
+    }
+    
+    func onStart() {
+        loadDataFromUserDefaults()
+        
+        let todaysDate = getTodaysDate()
+        if history.count == 0 {
+            createNewResultForDay(todaysDate: todaysDate)
+            return
+        }
+        
+        let lastResultForDay = history[history.count - 1]
+        if lastResultForDay.date == todaysDate {
+            return
+        }
+        
+        createNewResultForDay(todaysDate: todaysDate)
+    }
+    
+    func createNewResultForDay(todaysDate: String) {
+        history.append(ResultForDay(date: todaysDate, waterIntakes: []))
+    }
+    
+    func loadDataFromUserDefaults() {
+        do {
+            let data = try getFromUserDefaults()
+            goal = data.goal
+            dailyIntake = data.dailyIntake
+            remindPeriod = data.remindPeriod
+            history = data.history
+            
+            let todaysResult = data.history.first { resultForDay in
+                resultForDay.date == getTodaysDate()
+            }
+            
+            let currentIntakeInt = todaysResult?.waterIntakes.reduce(0) {
+                guard let intake = Int($1.intake) else {
+                    return 0
+                }
+                
+                guard let accumulator = $0 else {
+                    return 0
+                }
+                
+                return accumulator + intake
+            }
+            
+            guard let currentIntakeInt = currentIntakeInt else {
+                return
+            }
+            
+            currentIntake = String(currentIntakeInt)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadDataToUserDefaults() {
+        saveToUserDefaults(dataStorage: DataStorage(goal: goal, dailyIntake: dailyIntake, remindPeriod: remindPeriod, history: history))
+    }
+    
+
+    // Listen when an app is closed and save the data to UserDefaults
+    private var observers = [NSObjectProtocol]()
+    
+    init() {
+        observers.append(
+            NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { _ in
+                self.loadDataToUserDefaults()
+            }
+        )
+    }
+    
+    deinit {
+        observers.forEach(NotificationCenter.default.removeObserver)
     }
 }
-
-//@propertyWrapper
-//struct AppDataStorage<T: Codable> {
-//    private let key: String
-//    private let defaultValue: T
-//
-//    init(key: String, defaultValue: T) {
-//        self.key = key
-//        self.defaultValue = defaultValue
-//    }
-//
-//    var wrappedValue: T {
-//        get {
-//            guard let data = UserDefaults.standard.object(forKey: key) as? Data else {
-//                return defaultValue
-//            }
-//            let value = try? JSONDecoder().decode(T.self, from: data)
-//            return value ?? defaultValue
-//        }
-//        set {
-//            let data = try? JSONEncoder().encode(newValue)
-//            UserDefaults.standard.set(data, forKey: key)
-//        }
-//    }
-//}

@@ -8,14 +8,14 @@
 import Foundation
 import SwiftUI
 
-enum Goal: String, CaseIterable {
+enum Goal: String, CaseIterable, Codable {
     case goalOne = "Goal Number One"
     case goalTwo = "Goal Number Two"
     case goalThree = "Goal Number Three"
     case goalFour = "Goal Number Four"
 }
 
-enum RemindPeriod: String {
+enum RemindPeriod: String, Codable {
     case fifteenMins = "15 minutes"
     case thirtyMins = "30 minutes"
     case fortyFiveMins = "45 minutes"
@@ -26,22 +26,27 @@ enum RemindPeriod: String {
     case fourHours = "4 hours"
 }
 
-struct ResultForDay {
-    let date: String
-    let waterIntakes: [WaterIntake]
+struct ResultForDay: Codable {
+    var date: String
+    var waterIntakes: [WaterIntake]
 }
 
-struct WaterIntake {
+struct WaterIntake: Identifiable, Codable {
+    var id = UUID()
     let intake: String
     let time: String
 }
 
 // data saved (persisted) in UserDefaults
-struct DataStorage {
-    let goal: Goal
+struct DataStorage: Codable {
+    let goal: Goal?
     let dailyIntake: String
-    let remindPeriod: RemindPeriod
+    let remindPeriod: RemindPeriod?
     let history: [ResultForDay]
+}
+
+enum DataStorageError: Error {
+    case errorGettingDataFromUserDefaults
 }
 
 

@@ -29,7 +29,7 @@ struct IntakeScreen: View {
                 if intakeType == .daily {
                     store.dailyIntake = intakeInternal
                 } else if intakeType == .current {
-                    store.incrementCurrIntake(currIntake: intakeInternal)
+                    store.incrementCurrIntake(currIntakeStr: intakeInternal)
                 }
                 presentationMode.wrappedValue.dismiss()
             }

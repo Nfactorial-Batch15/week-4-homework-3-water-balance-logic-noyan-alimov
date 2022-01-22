@@ -20,6 +20,9 @@ struct ContentView: View {
                 }
             }
         }
+            .onAppear {
+                store.onStart()
+            }
     }
 }
 

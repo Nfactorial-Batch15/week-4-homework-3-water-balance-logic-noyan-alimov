@@ -25,8 +25,7 @@ struct TabBar: View {
                     Text("Settings")
                 }
             
-//            HistoryScreen()
-            Text("History")
+            HistoryScreen(history: store.history)
                 .tabItem {
                     Image(systemName: "doc")
                     Text("History")
