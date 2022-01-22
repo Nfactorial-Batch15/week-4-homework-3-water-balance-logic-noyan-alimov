@@ -16,7 +16,7 @@ class Store: ObservableObject {
     @Published var history: [ResultForDay] = []
     
     var showMainApp: Bool {
-        if (goal == nil && Int(dailyIntake) == 0 && remindPeriod == nil) {
+        if (goal == nil || dailyIntake == "" || remindPeriod == nil) {
             return false
         }
         

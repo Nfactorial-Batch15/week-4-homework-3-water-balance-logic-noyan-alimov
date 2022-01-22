@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RemindComponent: View {
-    @Binding var remindPeriod: RemindPeriod
+    @Binding var remindPeriod: RemindPeriod?
     
     var body: some View {
         VStack {
@@ -19,19 +19,43 @@ struct RemindComponent: View {
                 VStack(alignment: .center, spacing: 14) {
                     HStack(alignment: .center, spacing: 14) {
                         RemindRadio(remindPeriodEnum: .fifteenMins, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .fifteenMins
+                            }
                         RemindRadio(remindPeriodEnum: .thirtyMins, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .thirtyMins
+                            }
                     }
                     HStack(alignment: .center, spacing: 14) {
                         RemindRadio(remindPeriodEnum: .fortyFiveMins, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .fortyFiveMins
+                            }
                         RemindRadio(remindPeriodEnum: .oneHour, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .oneHour
+                            }
                     }
                     HStack(alignment: .center, spacing: 14) {
                         RemindRadio(remindPeriodEnum: .oneAndHalfHours, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .oneAndHalfHours
+                            }
                         RemindRadio(remindPeriodEnum: .twoHours, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .twoHours
+                            }
                     }
                     HStack(alignment: .center, spacing: 14) {
                         RemindRadio(remindPeriodEnum: .threeHours, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .threeHours
+                            }
                         RemindRadio(remindPeriodEnum: .fourHours, remindPeriod: $remindPeriod)
+                            .onTapGesture {
+                                remindPeriod = .fourHours
+                            }
                     }
                 }
             }
@@ -41,7 +65,7 @@ struct RemindComponent: View {
 
 struct RemindRadio: View {
     let remindPeriodEnum: RemindPeriod
-    @Binding var remindPeriod: RemindPeriod
+    @Binding var remindPeriod: RemindPeriod?
     
     var body: some View {
         ZStack {
@@ -64,6 +88,6 @@ struct RemindRadio: View {
 
 struct RemindComponent_Previews: PreviewProvider {
     static var previews: some View {
-        RemindComponent(remindPeriod: .constant(.oneAndHalfHours))
+        RemindComponent(remindPeriod: .constant(.fourHours))
     }
 }

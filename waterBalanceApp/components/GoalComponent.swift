@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalComponent: View {
-    @Binding var goal: Goal
+    @Binding var goal: Goal?
     
     var body: some View {
         VStack {
@@ -18,9 +18,21 @@ struct GoalComponent: View {
             FormContainer(height: 330) {
                 VStack(alignment: .center, spacing: 14) {
                     GoalRadio(goalEnum: Goal.goalOne, goal: $goal)
+                        .onTapGesture {
+                            goal = Goal.goalOne
+                        }
                     GoalRadio(goalEnum: Goal.goalTwo, goal: $goal)
+                        .onTapGesture {
+                            goal = Goal.goalTwo
+                        }
                     GoalRadio(goalEnum: Goal.goalThree, goal: $goal)
+                        .onTapGesture {
+                            goal = Goal.goalThree
+                        }
                     GoalRadio(goalEnum: Goal.goalFour, goal: $goal)
+                        .onTapGesture {
+                            goal = Goal.goalFour
+                        }
                 }
             }
         }
@@ -29,7 +41,7 @@ struct GoalComponent: View {
 
 struct GoalRadio: View {
     let goalEnum: Goal
-    @Binding var goal: Goal
+    @Binding var goal: Goal?
     
     var body: some View {
         HStack {

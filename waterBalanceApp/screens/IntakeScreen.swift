@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct IntakeScreen: View {
-    @Binding var intake: String
+    @ObservedObject var store: Store
+    
+    @State var intakeInternal: String = ""
     
     var body: some View {
         VStack {
@@ -18,11 +20,11 @@ struct IntakeScreen: View {
                 .foregroundColor(MyColors.lightBlue)
                 .padding(.bottom, 62)
             
-            IntakeComponent(intake: $intake)
+            IntakeComponent(intake: $intakeInternal)
                 .padding(.bottom, 77)
             
             CustomButton(text: "Save") {
-                print("Tapped")
+                store.dailyIntake = intakeInternal
             }
                 .padding(.bottom, 50)
         }
@@ -31,6 +33,6 @@ struct IntakeScreen: View {
 
 struct IntakeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        IntakeScreen(intake: .constant("10"))
+        IntakeScreen(store: Store())
     }
 }

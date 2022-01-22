@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct RemindBeginningScreen: View {
-    @Binding var remindPeriod: RemindPeriod
+    @ObservedObject var store: Store
     
     @State var isIntakeScreenActive: Bool = false
     
     var body: some View {
         ZStack {
             NavigationLink(isActive: $isIntakeScreenActive) {
-                IntakeScreen(intake: .constant("10"))
+                IntakeScreen(store: store)
             } label: {
                 EmptyView()
             }
@@ -27,7 +27,7 @@ struct RemindBeginningScreen: View {
                     .foregroundColor(MyColors.lightBlue)
                     .padding(.bottom, 62)
                 
-                RemindComponent(remindPeriod: $remindPeriod)
+                RemindComponent(remindPeriod: $store.remindPeriod)
                     .padding(.bottom, 116)
                 
                 CustomButton(text: "Next") {
@@ -41,6 +41,6 @@ struct RemindBeginningScreen: View {
 
 struct RemindBeginningScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RemindBeginningScreen(remindPeriod: .constant(.oneAndHalfHours))
+        RemindBeginningScreen(store: Store())
     }
 }

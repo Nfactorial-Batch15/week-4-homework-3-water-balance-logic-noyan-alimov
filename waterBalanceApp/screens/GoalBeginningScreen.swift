@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalBeginningScreen: View {
-    @Binding var goal: Goal
+    @ObservedObject var store: Store
     
     @State var isRemindBeginningScreenActive: Bool = false
     
@@ -16,7 +16,7 @@ struct GoalBeginningScreen: View {
         NavigationView {
             ZStack(alignment: .top) {
                 NavigationLink(isActive: $isRemindBeginningScreenActive) {
-                    RemindBeginningScreen(remindPeriod: .constant(.oneAndHalfHours))
+                    RemindBeginningScreen(store: store)
                 } label: {
                     EmptyView()
                 }
@@ -28,7 +28,7 @@ struct GoalBeginningScreen: View {
                         .foregroundColor(MyColors.lightBlue)
                         .padding(.bottom, 62)
                     
-                    GoalComponent(goal: $goal)
+                    GoalComponent(goal: $store.goal)
                         .padding(.bottom, 116)
                     
                     CustomButton(text: "Next") {
@@ -43,6 +43,6 @@ struct GoalBeginningScreen: View {
 
 struct GoalBeginningScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GoalBeginningScreen(goal: .constant(.goalOne))
+        GoalBeginningScreen(store: Store())
     }
 }

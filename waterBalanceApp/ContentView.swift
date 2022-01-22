@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var store = Store()
+    
     var body: some View {
-        GoalBeginningScreen(goal: .constant(.goalOne))
+        ZStack {
+            if store.showMainApp {
+                TabBar()
+            } else {
+                GoalBeginningScreen(store: store)
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(store: Store())
     }
 }
