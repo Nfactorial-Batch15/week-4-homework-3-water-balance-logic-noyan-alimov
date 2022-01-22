@@ -11,11 +11,13 @@ struct ContentView: View {
     @StateObject var store = Store()
     
     var body: some View {
-        ZStack {
-            if store.showMainApp {
-                TabBar()
-            } else {
-                GoalBeginningScreen(store: store)
+        NavigationView {
+            ZStack {
+                if store.showMainApp {
+                    TabBar(store: store)
+                } else {
+                    GoalBeginningScreen(store: store)
+                }
             }
         }
     }

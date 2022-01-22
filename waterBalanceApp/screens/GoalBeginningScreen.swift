@@ -13,31 +13,29 @@ struct GoalBeginningScreen: View {
     @State var isRemindBeginningScreenActive: Bool = false
     
     var body: some View {
-        NavigationView {
-            ZStack(alignment: .top) {
-                NavigationLink(isActive: $isRemindBeginningScreenActive) {
-                    RemindBeginningScreen(store: store)
-                } label: {
-                    EmptyView()
-                }
+        ZStack(alignment: .top) {
+            NavigationLink(isActive: $isRemindBeginningScreenActive) {
+                RemindBeginningScreen(store: store)
+            } label: {
+                EmptyView()
+            }
 
-                VStack {
-                    Text("WATER BALANCE")
-                        .font(.system(size: 24, weight: .bold, design: .default))
-                        .italic()
-                        .foregroundColor(MyColors.lightBlue)
-                        .padding(.bottom, 62)
-                    
-                    GoalComponent(goal: $store.goal)
-                        .padding(.bottom, 116)
-                    
-                    CustomButton(text: "Next") {
-                        isRemindBeginningScreenActive = true
-                    }
+            VStack {
+                Text("WATER BALANCE")
+                    .font(.system(size: 24, weight: .bold, design: .default))
+                    .italic()
+                    .foregroundColor(MyColors.lightBlue)
+                    .padding(.bottom, 62)
+                
+                GoalComponent(goal: $store.goal)
+                    .padding(.bottom, 116)
+                
+                CustomButton(text: "Next") {
+                    isRemindBeginningScreenActive = true
                 }
             }
-                .navigationBarHidden(true)
         }
+            .navigationBarHidden(true)
     }
 }
 

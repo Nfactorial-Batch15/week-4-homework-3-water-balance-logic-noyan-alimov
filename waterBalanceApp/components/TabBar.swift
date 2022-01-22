@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct TabBar: View {
+    @ObservedObject var store: Store
+    
     var body: some View {
         TabView {
-//            MainScreen()
-            Text("Main")
+            MainScreen(store: store)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Main")
@@ -38,6 +39,6 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
+        TabBar(store: Store())
     }
 }

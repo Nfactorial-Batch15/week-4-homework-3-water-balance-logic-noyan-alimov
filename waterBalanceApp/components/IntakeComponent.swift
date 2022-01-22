@@ -9,10 +9,11 @@ import SwiftUI
 
 struct IntakeComponent: View {
     @Binding var intake: String
+    let intakeType: Intake
     
     var body: some View {
         VStack {
-            Text("Daily intake?")
+            Text(intakeType == .daily ? "Daily intake?" : "Water intake")
                 .font(.system(size: 36, weight: .bold, design: .default))
             
             FormContainer(height: 108) {
@@ -41,6 +42,6 @@ struct IntakeComponent: View {
 
 struct IntakeComponent_Previews: PreviewProvider {
     static var previews: some View {
-        IntakeComponent(intake: .constant("10"))
+        IntakeComponent(intake: .constant("10"), intakeType: .daily)
     }
 }

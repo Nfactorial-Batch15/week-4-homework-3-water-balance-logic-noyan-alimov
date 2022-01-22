@@ -54,3 +54,8 @@ struct MyColors {
     static var black = Color(red: 0.184, green: 0.184, blue: 0.2)
     static var gray = Color(red: 0.235, green: 0.235, blue: 0.263)
 }
+
+enum Intake {
+    case daily
+    case current
+}

@@ -23,16 +23,31 @@ class Store: ObservableObject {
         return true
     }
     
-    var progressPercent: Int {
+    var progressPercent: String {
+        let val = (currentIntakeDouble / dailyIntakeDouble) * 100
+        return String(format: "%.0f", val)
+    }
+    
+    var currentIntakeDouble: Double {
         guard let currentIntakeDouble = Double(currentIntake) else {
-            return 0
+            return 0.00
         }
-        
+        return currentIntakeDouble
+    }
+    
+    var dailyIntakeDouble: Double {
         guard let dailyIntakeDouble = Double(dailyIntake) else {
-            return 0
+            return 0.00
+        }
+        return dailyIntakeDouble
+    }
+    
+    func incrementCurrIntake(currIntake: String) {
+        guard let currIntake = Double(currIntake) else {
+            return
         }
         
-        return Int((currentIntakeDouble / dailyIntakeDouble) * 100)
+        currentIntake = String(currentIntakeDouble + currIntake)
     }
 }
 

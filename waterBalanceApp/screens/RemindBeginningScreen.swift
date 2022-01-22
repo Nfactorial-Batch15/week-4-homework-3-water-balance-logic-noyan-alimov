@@ -15,7 +15,7 @@ struct RemindBeginningScreen: View {
     var body: some View {
         ZStack {
             NavigationLink(isActive: $isIntakeScreenActive) {
-                IntakeScreen(store: store)
+                IntakeScreen(store: store, intakeType: .daily)
             } label: {
                 EmptyView()
             }
