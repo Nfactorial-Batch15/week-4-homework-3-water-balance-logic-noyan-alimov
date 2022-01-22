@@ -19,8 +19,7 @@ struct TabBar: View {
                 }
                 
             
-//            SettingsScreen()
-            Text("Settings")
+            SettingsScreen(store: store)
                 .tabItem {
                     Image(systemName: "slider.horizontal.3")
                     Text("Settings")

@@ -15,14 +15,15 @@
 		7C285278279572B7001BCFA2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C285277279572B7001BCFA2 /* Models.swift */; };
 		7C28527C2795D893001BCFA2 /* GoalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28527B2795D893001BCFA2 /* GoalComponent.swift */; };
 		7C28527E2795DC7A001BCFA2 /* FormContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28527D2795DC7A001BCFA2 /* FormContainer.swift */; };
-		7C2852802795E472001BCFA2 /* GoalBeginningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28527F2795E472001BCFA2 /* GoalBeginningScreen.swift */; };
+		7C2852802795E472001BCFA2 /* GoalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28527F2795E472001BCFA2 /* GoalScreen.swift */; };
 		7C2852822795E644001BCFA2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2852812795E644001BCFA2 /* CustomButton.swift */; };
 		7C2852842795E685001BCFA2 /* RemindComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2852832795E685001BCFA2 /* RemindComponent.swift */; };
-		7C2852862795EE8B001BCFA2 /* RemindBeginningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2852852795EE8B001BCFA2 /* RemindBeginningScreen.swift */; };
+		7C2852862795EE8B001BCFA2 /* RemindScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2852852795EE8B001BCFA2 /* RemindScreen.swift */; };
 		7C47112C279C53490027A692 /* IntakeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47112B279C53490027A692 /* IntakeComponent.swift */; };
 		7C47112E279C58A80027A692 /* IntakeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47112D279C58A80027A692 /* IntakeScreen.swift */; };
 		7C471130279C5BE50027A692 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47112F279C5BE50027A692 /* TabBar.swift */; };
 		7C471132279C64FD0027A692 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C471131279C64FD0027A692 /* MainScreen.swift */; };
+		7C471134279C7E2B0027A692 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C471133279C7E2B0027A692 /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,14 +36,15 @@
 		7C285277279572B7001BCFA2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		7C28527B2795D893001BCFA2 /* GoalComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalComponent.swift; sourceTree = "<group>"; };
 		7C28527D2795DC7A001BCFA2 /* FormContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContainer.swift; sourceTree = "<group>"; };
-		7C28527F2795E472001BCFA2 /* GoalBeginningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalBeginningScreen.swift; sourceTree = "<group>"; };
+		7C28527F2795E472001BCFA2 /* GoalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalScreen.swift; sourceTree = "<group>"; };
 		7C2852812795E644001BCFA2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7C2852832795E685001BCFA2 /* RemindComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindComponent.swift; sourceTree = "<group>"; };
-		7C2852852795EE8B001BCFA2 /* RemindBeginningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindBeginningScreen.swift; sourceTree = "<group>"; };
+		7C2852852795EE8B001BCFA2 /* RemindScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindScreen.swift; sourceTree = "<group>"; };
 		7C47112B279C53490027A692 /* IntakeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeComponent.swift; sourceTree = "<group>"; };
 		7C47112D279C58A80027A692 /* IntakeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeScreen.swift; sourceTree = "<group>"; };
 		7C47112F279C5BE50027A692 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		7C471131279C64FD0027A692 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		7C471133279C7E2B0027A692 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +113,11 @@
 		7C28527A2795D87D001BCFA2 /* screens */ = {
 			isa = PBXGroup;
 			children = (
-				7C28527F2795E472001BCFA2 /* GoalBeginningScreen.swift */,
-				7C2852852795EE8B001BCFA2 /* RemindBeginningScreen.swift */,
+				7C28527F2795E472001BCFA2 /* GoalScreen.swift */,
+				7C2852852795EE8B001BCFA2 /* RemindScreen.swift */,
 				7C47112D279C58A80027A692 /* IntakeScreen.swift */,
 				7C471131279C64FD0027A692 /* MainScreen.swift */,
+				7C471133279C7E2B0027A692 /* SettingsScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -192,7 +195,7 @@
 				7C28527627956E6A001BCFA2 /* Store.swift in Sources */,
 				7C47112E279C58A80027A692 /* IntakeScreen.swift in Sources */,
 				7C28526A27956DD4001BCFA2 /* ContentView.swift in Sources */,
-				7C2852862795EE8B001BCFA2 /* RemindBeginningScreen.swift in Sources */,
+				7C2852862795EE8B001BCFA2 /* RemindScreen.swift in Sources */,
 				7C2852842795E685001BCFA2 /* RemindComponent.swift in Sources */,
 				7C28526827956DD4001BCFA2 /* waterBalanceAppApp.swift in Sources */,
 				7C28527E2795DC7A001BCFA2 /* FormContainer.swift in Sources */,
@@ -201,7 +204,8 @@
 				7C47112C279C53490027A692 /* IntakeComponent.swift in Sources */,
 				7C471130279C5BE50027A692 /* TabBar.swift in Sources */,
 				7C28527C2795D893001BCFA2 /* GoalComponent.swift in Sources */,
-				7C2852802795E472001BCFA2 /* GoalBeginningScreen.swift in Sources */,
+				7C2852802795E472001BCFA2 /* GoalScreen.swift in Sources */,
+				7C471134279C7E2B0027A692 /* SettingsScreen.swift in Sources */,
 				7C285278279572B7001BCFA2 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

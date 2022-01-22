@@ -53,8 +53,8 @@ struct MainScreen: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
                     .frame(width: geometry.size.width * 0.94, height: geometry.size.height * 0.5, alignment: .center)
-                    .padding(.top, 42)
-                    .padding(.bottom, 100)
+                    .padding(.top, 80)
+                    .padding(.bottom, 120)
                     .background(
                         LinearGradient(gradient: Gradient(colors: [MyColors.lighterBlue, .white]), startPoint: .top, endPoint: .bottom)
                     )

@@ -52,10 +52,14 @@ struct MyColors {
     static var lighterBlue = Color(red: 0.833, green: 0.882, blue: 0.972)
     static var blue = Color(red: 0.094, green: 0.408, blue: 0.992)
     static var black = Color(red: 0.184, green: 0.184, blue: 0.2)
-    static var gray = Color(red: 0.235, green: 0.235, blue: 0.263)
 }
 
 enum Intake {
     case daily
     case current
+}
+
+enum ScreenType {
+    case beginning
+    case mainApp
 }

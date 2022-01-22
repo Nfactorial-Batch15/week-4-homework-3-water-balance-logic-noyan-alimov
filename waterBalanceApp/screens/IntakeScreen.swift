@@ -30,8 +30,8 @@ struct IntakeScreen: View {
                     store.dailyIntake = intakeInternal
                 } else if intakeType == .current {
                     store.incrementCurrIntake(currIntake: intakeInternal)
-                    presentationMode.wrappedValue.dismiss()
                 }
+                presentationMode.wrappedValue.dismiss()
             }
                 .padding(.bottom, 50)
         }

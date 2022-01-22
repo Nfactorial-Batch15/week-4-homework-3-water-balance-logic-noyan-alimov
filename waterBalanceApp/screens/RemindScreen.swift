@@ -7,9 +7,13 @@
 
 import SwiftUI
 
-struct RemindBeginningScreen: View {
+struct RemindScreen: View {
     @ObservedObject var store: Store
+    let screenType: ScreenType
     
+    @Environment(\.presentationMode) var presentationMode
+    
+//    @State var internalRemindPeriod: RemindPeriod? = nil
     @State var isIntakeScreenActive: Bool = false
     
     var body: some View {
@@ -21,7 +25,7 @@ struct RemindBeginningScreen: View {
             }
             
             VStack {
-                Text("WATER BALANCE")
+                Text(screenType == .beginning ? "WATER BALANCE" : "REMINDER")
                     .font(.system(size: 24, weight: .bold, design: .default))
                     .italic()
                     .foregroundColor(MyColors.lightBlue)
@@ -30,17 +34,25 @@ struct RemindBeginningScreen: View {
                 RemindComponent(remindPeriod: $store.remindPeriod)
                     .padding(.bottom, 116)
                 
-                CustomButton(text: "Next") {
-                    isIntakeScreenActive = true
+                CustomButton(text: screenType == .beginning ? "Next" : "Save") {
+//                    store.remindPeriod = internalRemindPeriod
+                    if screenType == .beginning {
+                        isIntakeScreenActive = true
+                    } else {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
                     .padding(.bottom, 50)
             }
+//                .onAppear {
+//                    internalRemindPeriod = store.remindPeriod
+//                }
         }
     }
 }
 
-struct RemindBeginningScreen_Previews: PreviewProvider {
+struct RemindScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RemindBeginningScreen(store: Store())
+        RemindScreen(store: Store(), screenType: .beginning)
     }
 }

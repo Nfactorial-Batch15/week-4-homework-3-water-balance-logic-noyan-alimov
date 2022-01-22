@@ -16,7 +16,7 @@ struct ContentView: View {
                 if store.showMainApp {
                     TabBar(store: store)
                 } else {
-                    GoalBeginningScreen(store: store)
+                    GoalScreen(store: store, screenType: .beginning)
                 }
             }
         }
