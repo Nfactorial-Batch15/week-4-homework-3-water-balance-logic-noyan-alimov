@@ -32,7 +32,8 @@ struct RemindScreen: View {
                     .padding(.bottom, 62)
                 
                 RemindComponent(remindPeriod: $store.remindPeriod)
-                    .padding(.bottom, 116)
+                
+                Spacer()
                 
                 CustomButton(text: screenType == .beginning ? "Next" : "Save") {
 //                    store.remindPeriod = internalRemindPeriod

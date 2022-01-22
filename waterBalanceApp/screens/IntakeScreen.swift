@@ -20,10 +20,12 @@ struct IntakeScreen: View {
                 .font(.system(size: 24, weight: .bold, design: .default))
                 .italic()
                 .foregroundColor(MyColors.lightBlue)
-                .padding(.bottom, 62)
+            
+            Spacer()
             
             IntakeComponent(intake: $intakeInternal, intakeType: intakeType)
-                .padding(.bottom, 77)
+            
+            Spacer()
             
             CustomButton(text: "Save") {
                 if intakeType == .daily {

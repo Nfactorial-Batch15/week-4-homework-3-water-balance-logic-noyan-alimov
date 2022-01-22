@@ -28,6 +28,7 @@
 		7C471138279C928C0027A692 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C471137279C928C0027A692 /* DataStorage.swift */; };
 		7C47113C279C93C60027A692 /* ResultForDayComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47113B279C93C60027A692 /* ResultForDayComponent.swift */; };
 		7CB93AE2279C96DD00881C45 /* HistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB93AE1279C96DD00881C45 /* HistoryScreen.swift */; };
+		7CB93AE4279CAEF800881C45 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB93AE3279CAEF800881C45 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		7C471137279C928C0027A692 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		7C47113B279C93C60027A692 /* ResultForDayComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultForDayComponent.swift; sourceTree = "<group>"; };
 		7CB93AE1279C96DD00881C45 /* HistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreen.swift; sourceTree = "<group>"; };
+		7CB93AE3279CAEF800881C45 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				7C285277279572B7001BCFA2 /* Models.swift */,
 				7C471135279C8FDC0027A692 /* utils.swift */,
 				7C471137279C928C0027A692 /* DataStorage.swift */,
+				7CB93AE3279CAEF800881C45 /* Notification.swift */,
 			);
 			path = waterBalanceApp;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				7C47112C279C53490027A692 /* IntakeComponent.swift in Sources */,
 				7C471130279C5BE50027A692 /* TabBar.swift in Sources */,
 				7C28527C2795D893001BCFA2 /* GoalComponent.swift in Sources */,
+				7CB93AE4279CAEF800881C45 /* Notification.swift in Sources */,
 				7C2852802795E472001BCFA2 /* GoalScreen.swift in Sources */,
 				7C471134279C7E2B0027A692 /* SettingsScreen.swift in Sources */,
 				7C285278279572B7001BCFA2 /* Models.swift in Sources */,

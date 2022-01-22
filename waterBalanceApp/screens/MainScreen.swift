@@ -43,9 +43,11 @@ struct MainScreen: View {
                     }
                         .frame(width: 200, height: 200, alignment: .center)
                         
-                        
+                    Spacer()
+                    
                     Text(today)
-                        .padding(.vertical, 60)
+                    
+                    Spacer()
                     
                     Text(store.currentIntakeDouble == 0 ? "Add your first drink for today" : "Great job!")
                         .font(.system(size: 36, weight: .semibold, design: .default))

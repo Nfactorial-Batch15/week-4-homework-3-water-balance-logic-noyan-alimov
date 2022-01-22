@@ -48,6 +48,7 @@ class Store: ObservableObject {
         }
         
         currentIntake = String(currentIntakeDouble + currIntake)
+        self.cancelNotifications()
         
         if history.count == 0 {
             return
@@ -57,7 +58,14 @@ class Store: ObservableObject {
         history[history.count - 1].waterIntakes.append(waterIntake)
     }
     
+    func cancelNotifications() {
+        if currentIntakeDouble >= dailyIntakeDouble {
+            cancelNotification()
+        }
+    }
+    
     func onStart() {
+        requestUserPermission()
         loadDataFromUserDefaults()
         
         let todaysDate = getTodaysDate()
@@ -114,6 +122,14 @@ class Store: ObservableObject {
     
     func loadDataToUserDefaults() {
         saveToUserDefaults(dataStorage: DataStorage(goal: goal, dailyIntake: dailyIntake, remindPeriod: remindPeriod, history: history))
+    }
+    
+    func onRemindPeriodChange() {
+        guard let remindPeriod = remindPeriod else {
+            return
+        }
+        
+        setNotification(remindPeriod: remindPeriod)
     }
     
 

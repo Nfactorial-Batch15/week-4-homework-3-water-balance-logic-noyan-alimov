@@ -29,10 +29,12 @@ struct GoalScreen: View {
                     .font(.system(size: 24, weight: .bold, design: .default))
                     .italic()
                     .foregroundColor(MyColors.lightBlue)
-                    .padding(.bottom, 62)
+                
+                Spacer()
                 
                 GoalComponent(goal: $store.goal)
-                    .padding(.bottom, 116)
+                
+                Spacer()
                 
                 CustomButton(text: screenType == .beginning ? "Next" : "Save") {
 //                    store.goal = internalGoal
@@ -42,6 +44,7 @@ struct GoalScreen: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
+                    .padding(.bottom, 50)
             }
         }
             .navigationBarHidden(screenType == .beginning ? true : false)
